@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表格</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 3行2列表格 -->
+	<table>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!-- 带边框的表格 -->
+	<table border="1">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!--  设置table宽度 -->
+	<table border="1" width="200px">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!-- 单元格宽度绝对值 -->
+	<table border="1" width="200px">
+		<tr>
+			<td width="50px">1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!-- 单元格宽度相对值 -->
+	<table border="1" width="200px">
+		<tr>
+			<td width="80%">1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!-- 单元格水平对齐 -->
+	<table border="1" width="200px">
+		<tr>
+			<td width="50%" align="left">1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td align="center">a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td align="right">A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!-- 单元格垂直对齐 -->
+	<table border="1" width="200px">
+		<tr>
+			<td width="50%" valign="top">1</td>
+			<td>
+				2<br/>
+				2<br/>
+				2<br/>
+			</td>
+
+		</tr>
+		<tr>
+			<td valign="middle">a</td>
+			<td>
+				b<br/>
+				b<br/>
+				b<br/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="bottom">A</td>
+			<td>
+				B<br/>
+				B<br/>
+				B<br/>
+			</td>
+		</tr>
+	</table>
+
+	<!-- 横跨两行，水平合并 -->
+	<table border="1" width="200px">
+		<tr>
+			<td colspan="2">1,2</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!-- 横跨两行，垂直合并 -->
+	<table border="1" width="200px">
+		<tr>
+			<td rowspan="2">1,a</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+		</tr>
+	</table>
+
+	<!-- 单元格背景颜色 -->
+	<table border="1" width="200px">
+		<tr bgcolor="gray">
+			<td width="50%">1</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td bgcolor="pink">B</td>
+		</tr>
+	</table>
+</body>
+</html>
