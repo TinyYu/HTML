@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>尺寸</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div{
+			height: 500px;
+		}
+		p#percentage{
+			width: 50%;
+			/*p#percentage的高度是根据父容器来定的，如果父容器没有高度，子容器的高度百分数就会作废*/
+			height: 50%;
+			background-color: pink;
+		}
+		p#pix{
+			width: 180px;
+			height: 50px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<!-- 按比例布局是根据父容器大小来计算的，默认情况下，浏览器并不计算元素高度，除非元素内容超出显示范围。
+		所以如果需要按比例设置高度，需要添加一个div标签，设置div标签高度，把p元素放入div中，p的50%高度才会生效。 -->
+	<div>
+		<p id="percentage">按比例设置尺寸50%宽，50%高</p>
+		<p id="pix">按像素设置尺寸 180px宽 50px高</p>
+	</div>
+</body>
+</html>
