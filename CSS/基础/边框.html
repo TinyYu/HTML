@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>边框</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/*边框风格*/
+		/*
+		border-style
+		solid: 实线
+		dotted:点状
+		dashed:虚线
+		double:双线
+		*/
+		.solid{
+			border-style: solid;
+		}
+		.dotted{
+			border-style: dotted;
+		}
+		.dashed{
+			border-style: dashed;
+		}
+		.double{
+			border-style: double;
+		}
+
+		/*边框颜色 border-color*/
+		.red{
+			border-color: red;
+			border-style: solid;
+		}
+
+		/*边框宽度 border-width*/
+		.redW{
+			border-style: solid;
+			border-color: red;
+			border-width: 1px;
+		}
+		.default{
+			border-style: solid;
+			border-color: red;
+		}
+
+		/*集成*/
+		.blue{
+			border: blue dotted 1px; 
+		}
+
+		/*只有一个方向有边框*/
+		div#div1{
+			width: 150px;
+			height: 150px;
+			border-top: 50px blue solid;
+			background-color: lightgray;
+		}
+
+		/*左边和上边都有边框*/
+		div#div2{
+			width: 150px;
+			height: 150px;
+			border-top: 10px red solid;
+			border-left: 10px blue solid;
+			background-color: lightgray;
+		}
+		/*四边都有边框*/
+		div#div3{
+			width: 150px;
+			height: 150px;
+			border-top: 10px red solid;
+			border-left: 10px blue solid;
+			border-right: 10px green solid;
+			border-bottom: 10px pink solid;
+			background-color: lightgray;
+		}
+
+		/*块元素和内联元素的区别*/
+		span#span1{
+			border: solid red;
+		}
+		div#div4{
+			border: solid red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 边框风格 -->
+	<div>默认无边框</div>
+	<div class="solid">实线边框</div><br/>
+	<div class="dashed">虚线边框</div><br/>
+	<div class="dotted">点状边框</div><br/>
+	<div class="double">双线边框</div><br/>
+
+	<!-- 边框颜色 -->
+	<div>默认无边框</div>
+	<div class="red">红色边框</div><br/>
+
+	<!-- 边框宽度 -->
+	<div>默认无边框</div>
+	<div class="redW">实线红色细边框</div><br/>
+	<div class="default">实线红色默认宽度边框</div><br/>
+
+	<!-- 集成 -->
+	<div>默认无边框</div>
+	<div class="blue">点状蓝色细边框</div><br/>
+
+	<!-- 只有一个方向有边框 -->
+	<div id="div1">只有上面有边框</div><br/>
+
+	<!-- 有交界的边都有边框 -->
+	<div id="div2">左边和上边都有边框</div><br/>
+	<div id="div3">四边都有边框</div><br/>
+
+	<!-- 块元素和内联元素的区别 -->
+	<span id="span1">内联元素</span><br/>
+	<div id="div4">块元素</div><br/>
+</body>
+</html>
