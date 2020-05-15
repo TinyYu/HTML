@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>优先级</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		.p1{
+			color: green;
+		}
+		.p2{
+			color: blue !important;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		同时style标签中也有一个.p1
+		那么优先使用： 最后出现的一个
+	 -->
+	<p class="p1">p1是绿色的，优先级使用最后出现的一个</p>
+
+	<!--
+		style标签上的与style属性冲突
+		优先使用style属性
+	-->
+	<p class="p1" style="color: red">p1是红色的，优先使用style属性</p>
+
+	<!--
+		如果样式上增加了!important，则优先级最高，甚至高于style属性
+	-->
+	<p class="p2" style="color: red">p2是蓝色的，优先使用!important样式</p>
+</body>
+</html>

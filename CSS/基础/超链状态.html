@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>超链状态</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/*初始化状态，未被访问过*/
+		a:link{
+			color: #ff0000;
+		}
+
+		/*已访问过*/
+		a:visited{
+			color: #00ff00;
+		}
+
+		/*鼠标悬停于超链的状态*/
+		a:hover{
+			color: #ff00ff;
+		}
+
+		/*鼠标左键点击下去，但尚未弹起的时候*/
+		a:active{
+			color: #0000ff;
+		}
+
+		a.no_underline{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<a href="http://www.baidu.com">超链的不同状态</a>
+
+	<!-- 去除下划线 -->
+	<a href="http://www.baidu.com">默认超链</a>
+	<a class="no_underline" href="http://www.baidu.com">去除下划线的超链</a>
+</body>
+</html>

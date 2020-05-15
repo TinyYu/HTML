@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>内边距</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/*内边距*/
+		.red{
+			border: 5px red solid;
+			background-color: green;
+		}
+		.pad-left{
+			border: 5px red solid;
+			background-color: green;
+			padding-left: 50px;
+		}
+
+		/*内边距1个和4个的区别*/
+		.pad-one{
+			border: 1px solid;
+			padding: 20px;
+			background-color: green;
+		}
+		.pad-four{
+			border: 1px solid;
+			padding: 10px 20px 30px 40px;
+			background-color: green;
+		}
+		.pad-three{
+			border: 1px solid;
+			padding: 10px 20px 30px;
+			background-color: green;
+		}
+		.pad-two{
+			border: 1px solid;
+			padding: 10px 20px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<!-- 内边距 -->
+	<span class="red">无内边距的span</span><br/><br/>
+	<sapn class="pad-left">左边距为50的span</sapn><br/><br/><br/><br/><br/><br/>
+
+	<!-- 内边距1个和4个的区别 -->
+	<!--
+		如果只写一个，即四个方向的值
+		如果写四个，即四个方向的值
+    	上 右 下 左,依顺时针的方向依次赋值
+    -->
+	<span class="pad-one">padding:20的span</span><br/><br/><br/><br/><br/><br/>
+	<span class="pad-four">padding:10 20 30 40的span</span>
+
+	<!-- 内边距值少于4个 -->
+	<!-- padding:10 20 30 等同于 padding:10 20 30 20 -->
+	<span class="pad-three">padding:10 20 30的span</span>
+	<!-- padding:10 20 等同于 padding:10 20 -->
+	<span class="pad-two">padding:10 20的sapn</span>
+</body>
+</html>
