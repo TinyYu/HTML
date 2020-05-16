@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>div始终贴在下方</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.blue{
+			/*设置蓝色div相对定位*/
+			position: relative;
+			height: 300px;
+			width: 90%;
+			background-color: skyblue;
+		}
+		.green{
+			/*设置绿色div绝对定位*/
+			position: absolute;
+			bottom: 0px;
+			height: 30px;
+			width: 100%;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="blue">
+		无论蓝色div高度如何改变，绿色div始终贴在蓝色下方
+		<div class="green">绿色div始终贴在蓝色div下方</div>
+	</div>
+</body>	
+</html>

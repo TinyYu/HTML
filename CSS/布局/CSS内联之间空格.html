@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>内联之间空格</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		span{
+			border-bottom: 1px solid;
+		}
+
+		div.nocountinue span.span1{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<span>连续的span</span><span>连续的span</span><span>连续的span</span>
+	</div>
+	<div>
+		<span>有换行的span</span>
+		<span>有换行的span</span>
+		<span>有换行的span</span>
+	</div>
+
+	<!-- 解决方法 -->
+	<div class="nocountinue">
+		<span class="span1">有换行的span</span>
+		<span class="span1">有换行的span</span>
+		<span class="span1">有换行的span</span>
+	</div>
+	<!-- 加上 <div style="clear:both"></div> 用于使得后续的元素，不会和这些span重复在一起 -->
+	<div style="clear: both;"></div>
+	<div>后续内容</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>绝对定位</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/*绝对定位*/
+		p.abs{
+			position: absolute;
+			left: 100px;
+			top: 50px;
+		}
+		div.div1{
+			position: absolute;
+			left: 200px;
+			top: 100px;
+			width: 215px;
+			border: 1px solid blue;
+		}
+		p.abs1{
+			position: absolute;
+			left: 100px;
+			top: 100px;
+		}
+
+		img#i1{
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			z-index: 1;
+		}
+		img#i2{
+			position: absolute;
+			left: 50px;
+			top: 200px;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<p>正常文字1</p>
+	<p>正常文字2</p>
+
+	<!-- 设置了绝对定位的元素，相当于该元素被从原文档中删除了 -->
+	<!-- 所以”正常文字4“会紧接着出现在 ”正常文字2“后面，而不会留下空档 -->
+	<p class="abs">绝对定位文字3</p>
+
+	<p>正常文字1</p>
+	<p>正常文字1</p>
+
+
+	<div>
+		<p>正常文字a</p>
+		<p>正常文字b</p>
+		<p>正常文字c</p>
+		<p>正常文字d</p>
+		<p>正常文字e</p>
+		<p>正常文字f</p>
+	</div>
+
+	<!-- 对于 "绝对定位的文字" 这个p，其定位了的父容器即 class="absdiv" 的div -->
+	<!-- 所以 "绝对定位的文字" 这个p 出现的位置是以这个div 为基础的 -->
+	<div class="div1">
+		这是一个定位好了的div
+		<p class="abs">绝对定位的文字</p>
+	</div>
+
+	<!-- "绝对定位的文字" 这个p 的父容器div，并没有定位。 所以它的”最近的一个定位了的父容器” 即body -->
+	<div>
+		没有定位的div
+		<p class="abs1">绝对定位的文字</p>
+	</div>
+
+
+	<!-- z-index -->
+	<div>
+		<p>正常文字a</p>
+		<p>正常文字b</p>
+		<p>正常文字c</p>
+		<p>正常文字d</p>
+		<p>正常文字e</p>
+		<p>正常文字f</p>
+	</div>
+	<img id="i1" src="../../image/example.gif"/>
+	<img id="i2" src="../../image/example.gif"/>
+</body>
+</html>

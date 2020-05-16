@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>水平居中</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div.div1{
+			border:1px solid;
+			margin: 20px;
+		}
+		span{
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<!-- 内容居中 -->
+	<div align="center" class="div1">
+		通过设置属性align="center"居中内容
+	</div>
+	<div style="text-align: center;" class="div1">
+		通过样式style="text-alian:center"居中内容
+	</div>
+
+	<!-- 元素居中 -->
+	<div class="div1">默认情况下div会占用100%的宽度，所以无法观察元素是否居中</div>
+	<!-- 因为设定了div的宽度，而且左右两个外边距都设置为auto，那么左右外边距就需要均分剩下的空间，效果即为居中 -->
+	<div style="width:300px;margin: 0 auto" class="div1">设置div的宽度，使用样式margin:0 auto来使元素居中</div>
+	<span style="width: 300px;margin: 0 auto">span使内联元素不能通过设置宽度，使用margin:0 auto时元素居中</span>
+	<div style="text-align: center;">
+		<span>span的居中可以通过放置在div中，让div text-alian实现居中</span>
+	</div>
+</body>
+</html>

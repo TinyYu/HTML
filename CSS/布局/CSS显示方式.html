@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>显示方式</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div.d{
+			/*隐藏元素(不占坑)*/
+			display: none;
+		}
+
+		div,span{
+			width:100px;
+			height: 100px;
+			border: 1px solid;
+		}
+		span.d{
+			/*改造span为块级元素*/
+			display: block;
+		}
+
+		div.d1{
+			/*改造div为内联元素*/
+			display: inline;
+		}
+
+		span.span1{
+			/*改造为内联-块级*/
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+		}
+
+		/*
+		  其他
+		  list-item 显示为列表
+		  table 显示为表格
+          inline-table 显示为前后无换行的表格
+          table-cell 显示为单元格
+		*/
+	</style>
+</head>
+<body>
+	<!-- 隐藏 -->
+	<div class="d">隐藏div</div>
+	
+	<!-- 块级元素 -->
+	<div>普通的div</div>
+	<!-- span为内联元素，width、height不会生效 不会自动换行-->
+	<span>普通的span</span><span>普通的span</span><span>普通的span</span>
+	<span class="d">改造为块级的span</span>
+
+	<!-- 内联元素 -->
+	<span>普通的span</span><span>普通的span</span><span>普通的span</span>
+	<div class="d1">改造为内联元素的div</div>
+
+	<!-- 内联-块级 -->
+	可以设置宽度，并且在同一行
+	<span class="span1">盖伦</span><span class="span1">提米</span><span class="span1">爱惜</span>
+</body>
+</html>
