@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>综合练习3</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/综合练习3.css"/>
+</head>
+<body>
+	<p class="p1">请注意：带有“*”的项目必须填写.</p>
+
+	<form method="post" action="#">
+		<P class="p2">请填写您的用户名:</P>
+
+		<div>
+			<span class="span5"><span class="span1">*</span><span class="span2">通行证用户名:</span></span>
+			<span class="span3">
+				<input type="text" name="name" placeholder="请输入用户名"/>
+				<a href="#" class="a1">查看用户名是否被占用</a>
+			</span>
+			<span class="span4">用户名由<strong>a~Z</strong>的英文字母（不区分大小写）、<strong>0~9</strong>的数字、<strong>点</strong>、<strong>减号</strong>或<strong>下划线</strong>组成，长度为<strong>3~18</strong>个字符，只能以数字或者字母开头和结尾，例如:kyzy_001.</span>
+		</div>
+
+		<P class="p2">请填写安全设置:<span style="font-size: 10px;font-weight: normal;">（安全设置用于验证账号和找回密码）</span></P>
+		<p class="p3">以下信息对保证您账号的安全极为重要，请您务必认真填写.</p>
+
+
+		<div class="div1">
+			<span class="span5" style="top: 0px;">
+				<span class="span1">*</span><span class="span2">请入登陆密码:</span><br/>
+				<span class="span1">*</span><span class="span2">登陆密码确认:</span>
+			</span>
+			<span class="span3">
+				<input type="password" name="password"/>
+				<input type="password" name="password1"/>
+			</span>
+			<span class="span4">密码长度为<strong>6~16</strong>，区分字母大小写，登陆密码可以由字母、数字、特殊字符组成.<strong>【</strong><a href="#">更多说明</a><strong>】</strong></span>
+		</div>
+
+		<div class="div1">
+			<span class="span5" style="top: 0px;">
+				<span class="span1">*</span><span class="span2">密码提示问题:</span><br/>
+				<span class="span1">*</span><span class="span2">密码提示答案:</span>
+			</span>
+			<span class="span3">
+				<input type="text" name="issue"/>
+				<input type="text" name="answer"/>
+			</span>
+			<span class="span4">当您忘记密码时可以找回密码，例如，问题时”我的哥哥是谁？“，答案为”peter2“，问题长度<strong>不大于36</strong>个字符，一个汉字占两个字符.答案长度在<strong>6~30</strong>位之间，区分大小写.<strong>【</strong><a href="#">更多说明</a><strong>】</strong></span>
+		</div>
+
+		<div class="div1">
+			<span class="span5" style="top: 0px;left: 15px">
+				<span class="span1">*</span><span class="span2">输入安全码:</span><br/>
+				<span class="span1">*</span><span class="span2">安全码确认:</span>
+			</span>
+			<span class="span3">
+				<input type="text" name="security"/>
+				<input type="text" name="security1"/>
+			</span>
+			<span class="span4">安全码是您找回密码的重要途经，安全码长度位<strong>6~16</strong>位，区分字母大小写、由字母、数字、特殊字符组成.<span style="color: red">特别提醒: 安全码一旦设定，将不可更改.</span><strong>【</strong><a href="#">更多说明</a><strong>】</strong></span>
+		</div>
+		<div class="div2">
+			<input type="submit" value="提 交 表 单"/>
+		</div>
+	</form>
+</body>
+</html>
