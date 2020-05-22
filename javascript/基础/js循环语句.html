@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>循环语句</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		function p(s){
+			document.write(s);
+			document.write("<br/>");
+		}
+
+		// for循环
+		document.write("使用for循环打印 0 到 4 <br/>");
+		for(var i = 0;i < 5;i++){
+			p(i);
+		}
+
+		// while循环
+		var i = 0;
+		while(i < 5){
+			p(i);
+			i++;
+		}
+
+		// do while循环
+		var i = 0;
+		do{
+			p(i);
+			i++;
+		}while(i < 5);
+
+		// 跳过循环
+		document.write("使用for循环打印 0 到 4<br>如果发现是3，就<span style='color:red'>放弃本次循环，并且进入下一次</span>循环<br>");
+		for(var i = 0;i < 5;i++){
+			if (i == 3) {
+				continue;
+			}
+			p(i);
+		}
+
+		// 终止循环
+		document.write("使用for循环打印 0 到 4<br>如果发现是3，就<span style='color:red'>终止循环</span><br>");
+		for(var i = 0;i < 5;i++){
+			if (i == 3) {
+				break;
+			}
+			p(i);
+		}
+
+	</script>
+</body>	
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>函数</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		  function关键字用于定义一个函数
+		  print即函数的名称
+		  ()表示参数列表，像这样就指没有参数
+		  { 表示函数开始
+		  } 表示函数结束
+		*/
+		function print(){
+			document.write("函数打印");
+			document.write("<br/>");
+		}
+		print();
+
+
+		// 带参函数
+		function print1(message){
+			document.write(message);
+		}
+		print1("1");
+		print1("<br/>");
+		print1("2");
+		print1("<br/>");
+
+		// 带返回值的函数
+		function print2(x,y){
+			return x+y;
+		}
+		var a = print2(100,300);
+		print1(a);
+	</script>
+
+</body>
+</html>

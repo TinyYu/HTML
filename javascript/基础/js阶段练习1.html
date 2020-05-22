@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>阶段练习1</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		input{
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <script type="text/javascript">
+		function get(){
+			var value = document.getElementById("num1").value;
+			document.getElementById("result").value = "从num1中取到的值:" + value;
+		}	
+	</script>
+
+	<input type="text" id="num1" value="1">
+	<br/>
+	<input type="text" id="result" value="">
+	<br/>
+	<input type="text" value="取值" onclick="get()"> -->
+
+	<script type="text/javascript">
+		function get(){
+			// 从num1中取value
+			var value1 = document.getElementById("num1").value;
+			// 从num2中取value
+			var value2 = document.getElementById("num2").value;
+			var sum = Number(value1) + Number(value2);
+			//把数值放入id = num中
+			document.getElementById("num").value = sum;
+		}
+	</script>
+	<input type="text" id="num1">
+	+
+	<input type="text" id="num2">
+	=
+	<input type="text" id="num">
+	<button onclick="get()">运算</button>
+</body>
+</html>

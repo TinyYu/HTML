@@ -1,1 +1,0 @@
-document.write("这是javascript");

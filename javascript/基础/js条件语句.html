@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>条件语句</title>
+	<meta charset="utf-8">
+</head>
+<body>	
+	<script type="text/javascript">
+		var age = 15;
+		if (age < 18) {
+			document.write("如果小于18，就看卡通<br/>");
+		}
+
+		var age2 = 22;
+		if (age2 < 18) {
+			document.write("如果小于18，就看卡通<br/>");
+		} else {
+			document.write("否则就看 你懂的<br/>");
+		}
+
+		var age3 = 20;
+		if (age3 < 18) {
+			document.write("如果小于18，就看卡通<br/>");
+		} else if (age3 < 22) {
+			document.write("大于等于18，并且小于22，就看 你懂的<br/>");
+		} else {
+			 document.write("大于等于22就看 新闻联播<br/>");
+		}
+
+		// 多条件判断
+		var day = new Date().getDay();//通过日期对象获取数字形式的星期几
+		var today;
+		switch(day){
+			case 0:
+				today="星期天";
+				break;
+			case 1:
+				today="星期一";
+				break;
+			case 2:
+				today="星期二";
+				break;
+			case 3:
+				today="星期三";
+				break;
+			case 4:
+				today="星期四";
+				break;
+			case 5:
+				today="星期五";
+				break;
+			case 6:
+				today="星期六";
+				break;
+		}
+		document.write("今天是:" + today);
+	</script>
+</body>
+</html>

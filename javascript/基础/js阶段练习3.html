@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>阶段练习3</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table{
+			/* 合并边框模型 */
+			border-collapse: collapse;
+		}
+		td{
+			border:1px solid silver;
+			padding: 5px;
+			font-size: 13px;
+		}
+		input{
+			width: 80px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function getValue(id){
+			 var a = document.getElementById(id).value;
+			 if (a) {
+			 	return parseFloat(a);
+			 } else {
+			 	return 0;
+			 }
+		}
+
+		function setValue(id,value){
+			document.getElementById(id).value = value;
+		}
+		function p(){
+			// 本金
+			var startM = getValue("startM");
+			console.log(startM);
+			// 利息
+			var yield_s = getValue("yield") / 100;
+			console.log(yield_s);
+			// 年
+			var year = getValue("year");
+			console.log(year);
+			// 每年追加资金
+			var yearM = getValue("yearM");
+			console.log(yearM);
+
+
+			// 本金和
+			var monyeSum = yearM * (year - 1) + startM;
+			setValue("monyeSum",monyeSum);
+
+			// 本息和
+			var pai_Sum = 0;
+			for(var i = 1;i <= year;i++){
+				if (i == 1) {
+					// 第一年的本息
+					pai_Sum = startM * (1 + yield_s);
+				} else {
+					pai_Sum = (pai_Sum + yearM) * (1 + yield_s);
+				}	
+			}
+			setValue("pai_Sum",pai_Sum);
+
+
+			// 利息和
+			var interest_Sum = pai_Sum - monyeSum;
+			setValue("interest_Sum",interest_Sum);
+		}
+	</script>
+	<table>
+		<tr style="border-top:1px solid #A5ACB2;">
+			<td>起始资金</td>
+			<td><input type="text" id="startM">￥</td>
+		</tr>
+		<tr>
+			<td>每年收益</td>
+			<td><input type="text" id="yield">%</td>
+		</tr>
+		<tr>
+			<td>复利年数</td>
+			<td><input type="text" id="year">年</td>
+		</tr>
+		<tr>
+			<td>每年追加资金</td>
+			<td><input type="text" id="yearM">￥</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><button onclick="p()">计算</button></td>
+		</tr>
+		<!-- disabled 属性 禁用 -->
+		<tr>
+			<td>本金和</td>
+			<td><input disabled="disabled" type="text" id="monyeSum">￥</td>
+		</tr>
+		<tr>
+			<td>利息和</td>
+			<td><input disabled="disabled" type="text" id="interest_Sum">￥</td>
+		</tr>
+		<tr>
+			<td>本息和</td>
+			<td><input disabled="disabled" type="text" id="pai_Sum">￥</td>
+		</tr>
+	</table>
+</body>
+</html>

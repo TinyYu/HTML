@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>阶段练习2</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		span{
+			display: inline-block;
+			width: 100px;
+			border: 1px solid #A5ACB2;
+			margin-right: 10px;
+			font-family: 宋体;
+			font-size: 15px;
+		}
+		input{
+			margin-right: 5px;
+		}
+		button{
+			margin:10px 0px;
+		}
+		textarea{
+			width: 100%;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id).value;
+		}
+		function get(){
+			var siteName = $("siteName");
+			var cType = $("cType");
+			var cName = $("cName");
+			var bName = $("bName");
+			var money = $("money");
+			var product = $("product");
+			var uom = $("uom");
+
+			var value = siteName +"最大"+cType+cName+"倒闭了，王八蛋老板"+bName+"吃喝嫖赌，欠下了"+money+"个亿，"
+                            + "带着他的小姨子跑了!我们没有办法，拿着"+product+"抵工资!原价都是一"+uom+"多、两"+uom+"多、三"+uom+"多的"+product+"，"
+                            + "现在全部只卖二十块，统统只要二十块!"+bName+"王八蛋，你不是人!我们辛辛苦苦给你干了大半年，"
+                            + "你不发工资，你还我血汗钱，还我血汗钱!";
+			document.getElementById('result').value = value;
+		}
+	</script>
+	<span>地点:</span><input type="text" id="siteName">
+	<span>公司类型:</span><input type="text" id="cType"><br/>
+	<span>公司名称:</span><input type="text" id="cName">
+	<span>老板姓名:</span><input type="text" id="bName"><br/>
+	<span>money:</span><input type="text" id="money">
+	<span>产品:</span><input type="text" id="product"><br/>
+	<span>价格计量单位:</span><input type="text" id="uom"><br/>
+	<button onclick="get()">生成</button><br/>
+	<textarea id="result"></textarea>
+</body>
+</html>
