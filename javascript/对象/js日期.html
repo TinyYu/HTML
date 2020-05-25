@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>日期</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		h3{
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function p(s,v){
+			document.write(s + ' ' + v);
+			document.write('<br>');
+		}
+		// 创建对象
+		var d = new Date();
+		p('new Date():',d);
+
+		// 年,月,日
+		p('年:',d.getFullYear());
+		p('月',d.getMonth() + 1);// getMonth()返回的月数，是基零的
+		p('日',d.getDate());
+
+		//时,分,秒,毫秒
+		p('时:',d.getHours());
+		p('分:',d.getMinutes());
+		p('秒:',d.getSeconds());
+		p('毫秒:',d.getMilliseconds());
+
+		//一周的第几天
+		var weeks = new Array('星期天','星期一','星期二','星期三','星期四','星期五','星期六');
+		p('今天是:',weeks[d.getDay()]);
+
+		//经历的毫秒数
+		p('从1970/1/1 08:00:00到今天的毫秒数:',d.getTime());
+
+		//修改日期和时间
+		d.setFullYear(2012);
+		d.setMonth(11);
+		d.setDate(12);
+		d.setHours(0);
+		d.setMinutes(0);
+		d.setSeconds(0);
+		d.setMilliseconds(0);
+		p('修改过后的时间:',d);
+	</script>
+
+	<!-- 练习 -->
+	<h3>请输入出生年月日</h3><br>
+	<h3>年份</h3>
+	<select id="year">
+		<script type="text/javascript">
+			var d = new Date();
+			for (var i = 1900; i <= d.getFullYear(); i++) {
+				document.write('<option>' + i + '</option>');
+			}
+		</script>
+	</select>
+	<h3>月份</h3>
+	<select id="month">
+		<script type="text/javascript">
+			for (var i = 1; i <= 12; i++) {
+				document.write('<option>' + i + '</option>');
+			}
+		</script>
+	</select>
+	<h3>日</h3>
+	<select id="day">
+		<script type="text/javascript">
+			for (var i = 1; i <= 31; i++) {
+				document.write('<option>' + i + '</option>');
+			}
+		</script>
+	</select>
+	<br>
+	<input type="submit" value="计算年龄" onclick="js()">
+	<br>
+	<h3 id="age"></h3>
+	<script type="text/javascript">
+		function get(id){
+			return document.getElementById(id).value;
+		}
+		function set(id,value){
+			var v = '今年' + value + '岁';
+			document.getElementById(id).innerText = v;
+		}
+		function js(){
+			var d = new Date();
+			var k_year = get('year');
+			var k_month = get('month');
+			if (k_month > d.getMonth()) {
+				set('age',(d.getFullYear() - k_year) - 1);
+			} else {
+				set('age',(d.getFullYear() - k_year));
+			}
+		}
+	</script>
+</body>
+</html>

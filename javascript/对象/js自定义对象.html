@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自定义对象</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// 通过new Object()创建对象
+		var hero = new Object();
+		hero.name = '盖伦';//定义一个属性name，并且赋值
+		hero.kill = function(){
+			document.write(hero.name + "正在杀敌<br>");//定义一个函数kill
+		}
+		hero.kill();//调用函数
+
+		// 通过function创建对象
+		function Hero(name){
+			this.name = name;
+			this.kill = function(){
+				document.write(this.name + '正在杀敌<br>');
+			}
+		}
+		var gareen = new Hero("盖伦");
+		gareen.kill();
+		var teemo = new Hero('提莫');
+		teemo.kill();
+
+		//为已存在的对象，增加新的方法
+		Hero.prototype.keng = function(){
+			document.write(this.name + "正在坑队友<br>");
+		}
+		gareen.keng();
+		teemo.keng();
+	</script>
+</body>
+</html>
