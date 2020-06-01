@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>弹出框</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// 告警框
+		function register(){
+			alert("注册成功");
+		}
+		//确认框
+		function del(){
+			var d = confirm('是否删除:');
+			alert(typeof d + " " + d);
+		}
+		// 输入框
+		function p(){
+			var name = prompt("请输入用户名:");
+			alert("您输入的用户名是:" + name);
+		}
+	</script>
+	<button onclick="register()">注册</button>
+	<button onclick="del()">删除</button>
+	<button onclick="p()">请输入用户名</button>
+</body>
+</html>

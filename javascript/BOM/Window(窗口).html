@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>窗口</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// 获取文档显示区域的高度、宽度
+		document.write("文档内容");
+		document.write("文档显示区域的宽度:" + window.innerWidth);
+		document.write("<br>");
+		document.write("文档显示区域的高度:" + window.innerHeight);
+		document.write("<br>");
+
+		//获取外部窗体的宽度和高度
+		document.write("浏览器的宽度:" + window.outerWidth);
+		document.write("<br>");
+		document.write("浏览器的高度:" + window.outerHeight);
+		document.write("<br>");
+	</script>
+
+	<!-- 打开一个新的窗口 -->
+	<!-- 不建议使用，如果需要打开一个新的网站，应该通过超级链接等方式让用户主动打开 -->
+	<script type="text/javascript">
+		function NewWindow(){
+			myWindow = window.open("/");
+		}
+	</script>
+	<button onclick="NewWindow()">打开一个新的窗口</button>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>访问历史</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 返回上一次访问 -->
+	<button onclick="goBack()">返回</button>
+	<button onclick="goBack2()">返回上上一次</button>
+	<script type="text/javascript">
+		function goBack(){
+			history.back();
+		}
+		function goBack2(){
+			history.go(-2);//-1表示上一次，-2表示上上一次,以此类推
+		}
+	</script>
+</body>
+</html>

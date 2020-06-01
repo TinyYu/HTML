@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>浏览器</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// 打印浏览器相关信息
+		function p(s,v){
+			document.write(s + ' ' + v);
+			document.write("<br>");
+		}
+		p("浏览器名称:",navigator.appName);
+		p("浏览器版本号:",navigator.appVersion);
+		p("浏览器内部代码:",navigator.appCodeName);
+		p("操作系统:",navigator.platform);
+		p("是否启用Cookies:",navigator.cookiesEnabled);
+		p("浏览器的用户代理报头:",navigator.userAgent);
+	</script>
+</body>
+</html>
