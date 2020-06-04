@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>练习</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		a{
+			text-decoration: none;
+			color: #808080;
+		}
+		a.no{
+			color: #87CEFA;
+		}
+		table{
+			width: 70px;
+			border-collapse: collapse;
+			border:1px solid #C0C0C0;
+			font-size: 15px;
+			display: none;
+			text-align: center;
+		}
+		.table1{
+			margin-left: 35px;
+		}
+		.table2{
+			margin-left: 70px;
+		}
+		td{
+			padding: 10px;
+			width: 70px;
+		}
+		td:hover{
+			background-color: #DCDCDC;
+		}
+	</style>
+</head>
+<body>
+	<!-- 下拉菜单 -->
+	<a href="" onmousemove="move(this)" class="no">武器</a>
+	<a href="" onmousemove="move(this)" class="no">护甲</a>
+	<a href="" onmousemove="move(this)" class="no">英雄</a>
+	<table id="武器">
+		<tr>
+			<td><a href="">大剑</a></td>
+		</tr>
+		<tr>
+			<td><a href="">短剑</a></td>
+		</tr>
+		<tr>
+			<td><a href="">长剑</a></td>
+		</tr>
+		<tr>
+			<td><a href="">五魔</a></td>
+		</tr>
+	</table>
+	<table id="护甲" class="table1">
+		<tr>
+			<td><a href="">胸甲</a></td>
+		</tr>
+		<tr>
+			<td><a href="">护臂</a></td>
+		</tr>
+		<tr>
+			<td><a href="">头盔</a></td>
+		</tr>
+		<tr>
+			<td><a href="">鞋子</a></td>
+		</tr>
+	</table>
+	<table id="英雄" class="table2">
+		<tr>
+			<td><a href="">盖伦</a></td>
+		</tr>
+		<tr>
+			<td><a href="">安妮</a></td>
+		</tr>
+		<tr>
+			<td><a href="">提莫</a></td>
+		</tr>
+		<tr>
+			<td><a href="">德玛</a></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function move(e){
+			var tables = document.getElementsByTagName('table');
+			for (var i = 0; i < tables.length; i++) {
+				if (!e.innerHTML.localeCompare(tables[i].id)) {
+					off(tables[i].id,1);
+				}else{
+					off(tables[i].id,0);
+				}
+			}
+		}
+		function off(id,value){
+			if (value == 1) {
+				document.getElementById(id).style.display = 'block';
+			} else {
+				document.getElementById(id).style.display = 'none';
+			}
+		}
+	</script>
+
+
+	<br><br>
+	<!-- 账号验证 -->
+	<input type="text" id="input1" onblur="down()">
+	<div id="div2"></div>
+	<script type="text/javascript">
+		function down(){
+			var inputs = document.getElementById('input1');
+			if (!inputs.value.charAt(0).localeCompare('a') || !inputs.value.charAt(0).localeCompare('A')) {
+				document.getElementById('div2').innerHTML = '账号已存在';
+				document.getElementById('div2').style.color = 'red';
+			} else {
+				document.getElementById('div2').innerHTML = '账号可以使用';
+				document.getElementById('div2').style.color = 'green';
+			}
+		}
+	</script>
+
+	<br><br>
+	<!-- 反选 -->
+	<input type="checkbox" name="q" onclick="qx()">全选
+	<br>
+	<input type="checkbox">tokyo hot
+	<br>
+	<input type="checkbox">dota
+	<br>
+	<input type="checkbox">lol
+	<br>
+	<input type="checkbox">wow
+	<br>
+	<input type="checkbox">diablo
+	<br>
+	<a href="#" style="color: blue" onclick="singleClick()">反选</a>
+	<script type="text/javascript">
+		function singleClick(){
+			var s = document.getElementsByTagName('input');
+			for (var i = 0; i < s.length; i++) {
+				if (s[i].checked == false) {
+					if (s[i].name.localeCompare('q')) {
+						s[i].checked = true;
+					}
+				} else {
+					s[i].checked = false;
+				}
+			}
+		}
+		function qx(){
+			var s = document.getElementsByTagName('input');
+			for (var i = 0; i < s.length; i++) {
+				if (s[i].checked == false) {
+					s[i].checked = true;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 焦点事件 -->
+	<!--
+		当组件获取焦点的时候，会触发onfocus事件
+		当组件失去焦点的时候，会触发onblur事件
+	-->
+	<input type="text" onfocus="f()" onblur="b()" id="input1" placeholder="输入框1"><br><br>
+	<input type="text" id="input2" placeholder="输入框2"><br><br>
+	<div id="message"></div>
+	<script type="text/javascript">
+		function f(){
+			document.getElementById('message').innerHTML = '输入框1获取焦点';
+		}
+		function b(){
+			document.getElementById('message').innerHTML = '输入框1失去焦点';
+		}
+	</script>
+
+	<!-- 鼠标事件 -->
+	<!--
+		当在组件上鼠标按下的时候，会触发onmousedown事件
+
+		当在组件上鼠标弹起的时候，会触发onmouseup事件
+
+		当在组件上鼠标经过的时候，会触发onmousemove事件
+
+		当在组件上鼠标进入的时候，会触发onmouseover事件
+
+		当在组件上鼠标退出的时候，会触发onmouseout事件
+
+		当鼠标进入一个组件的时候，onmousemove和onmouseover都会被触发，区别在于无论鼠标在组件上如何移动，onmouseover只会触发一次，onmousemove每次移动都会触发
+	-->
+	<input type="button" onmousedown="down()" onmouseup="up()" value="用于演示按下和弹起"><br><br>
+	<input type="button" onmousemove="move()" value="用于演示鼠标经过"><br><br>
+	<input type="button" onmouseover="over()" value="用于演示鼠标进入"><br><br>
+	<input type="button" onmouseout="out()" value="用于演示鼠标退出"><br><br>
+	<div id="div1"></div>
+	<script type="text/javascript">
+		function down(){
+			document.getElementById('div1').innerHTML = '鼠标按下';
+		}
+		function up(){
+			document.getElementById('div1').innerHTML = '鼠标弹起';
+		}
+		var number = 0;
+		function move(){
+			document.getElementById('div1').innerHTML = '鼠标经过次数:' + (++number);
+		}
+		var i = 0;
+		function over(){
+			document.getElementById('div1').innerHTML = '鼠标进入次数:' + (++i);
+		}
+		function out(){
+			document.getElementById('div1').innerHTML = '鼠标退出';
+		}
+	</script>
+
+	<!-- 键盘事件 -->
+	<!--
+		当在组件上键盘按下的时候，会触发onkeydown事件
+
+		当在组件上键盘按下的时候，也会触发onkeypress事件
+
+		当在组件上键盘弹起的时候，会触发onkeyup事件
+	注: onkeypress 是当按下并弹起的组合动作，这个说法是错误的
+
+	onkeydown和onkeypress的区别
+		onkeydown
+			可以获取所有键，除了打印键Prts
+			可以获取用户是否点击了修饰键 (ctrl,shift,alt)
+			不能判断输入的是大写还是小写
+		onkeypress
+			只能获取字符键
+			不能获取用户是否点击了修饰键 (ctrl,shift,alt)
+			可以判断输入的是大写还是小写
+
+	但是！ 在不同的浏览器上，以上规则是不成立的。说这些都没有卵用，你无法控制用户到底使用哪种浏览器。 所以，只要记得keydown和keypress都表示点下了键。。。即可 
+	-->
+	"鼠标选中组件，然后敲击键盘"<br>
+	<input type="button" onkeydown="down(event)" value="用于演示按下keydown"><br><br>
+	<input type="button" onkeypress="prees(event)" value="用于演示按下keyprees"><br><br>
+	<input type="button" onkeyup="up()" value="用于演示弹起"><br><br>
+	<div id="div2"></div>
+	<script type="text/javascript">
+		function down(e){
+			var text = '按下了键' + e.keyCode;
+			if (e.shiftKey == 1) {
+				text += '并且按下了shift键';
+			}
+			document.getElementById('div2').innerHTML = text;
+		}
+		function pree(e){
+			var text = '按下了键' + e.keyCode;
+			if (e.shiftKey == 1) {
+				text += '并且按下了shift键';
+			}
+			document.getElementById('div2').innerHTML = text;
+		}
+		function up(){
+			document.getElementById('div2').innerHTML = '弹起了键盘';
+		}
+	</script>
+
+	<!-- 点击事件 -->
+	<!--
+		当在组件上单击的时候，会触发onclick事件
+
+		当在组件上双击的时候，会触发ondblclick事件
+	-->
+	<input type="button" onclick="singleClick()" ondblclick="doubleClick()" value="用于演示单击和双击事件"><br><br>
+	<div id="div3"></div>
+	<script type="text/javascript">
+		function singleClick(){
+			document.getElementById('div3').innerHTML = '单击按钮';
+		}
+		function doubleClick(){
+			document.getElementById('div3').innerHTML = '双击按钮';
+		}
+	</script>
+
+	<!-- 变化事件 -->
+	<!--
+		当组件的值发生变化的时候，会触发onchange事件
+	-->
+	<input type="text" id="t1" onchange="change()" value=""><br><br>
+	<input type="button" value="令输入框失去焦点的按钮"><br><br>
+	<div id="div4"></div>
+	<script type="text/javascript">
+		function change(){
+			var message = document.getElementById('div4');
+			var t1 = document.getElementById('t1');
+			message.innerHTML = '输入框的值变为了:' + t1.value;
+		}
+	</script>
+
+	<!-- 提交事件 -->
+	<form action="#" onsubmit="login()">
+		账号:<input type="text" name="name"><br>
+		密码:<input type="password" name="password"><br>
+		<input type="submit" value="登陆">
+	</form>
+	<script type="text/javascript">
+		function login(){
+			alert('提交表单');
+		}
+	</script>
+
+	<!-- 加载事件 当整个文档加载成功，或者一个图片加载成功，会触发加载事件-->
+	<body onload="loadBody()">
+		<div id="message1"></div>
+		<div id="message2"></div>
+	</body>
+	<img src="../image/imgs/0.jpg" onload="loadImg()">
+	<script type="text/javascript">
+		function loadBody(){
+			document.getElementById('message1').innerHTML = '文档加载成功';
+		}
+		function loadImg(){
+			document.getElementById('message2').innerHTML = '图片加载成功';
+		}
+	</script>
+	<br><br>
+	<!-- 当前组件 -->
+	<!-- this表示触发事件的组件，可以在调用函数的时候，作为参数传进去 -->
+	<input type="button" onclick="singleClicks(this)" value="演示this的按钮1">
+	<input type="button" onclick="singleClicks(this)" value="演示this的按钮2">
+	<br><br>
+	<div id="div5"></div>
+	<script type="text/javascript">
+		function singleClicks(button){
+			var s = '被点击的按钮上的文本是:' + button.value;
+			document.getElementById('div5').innerHTML = s;
+		}
+	</script>
+
+	<!-- 阻止事件发生 -->
+	<!--
+		提交一个表单的时候，如果用户名为空，弹出提示，并阻止原本的提交
+			1. 在调用函数的时候，增加一个return
+			2. 在函数中，如果发现用户名为空，则返回false
+			3. 当onSubmit得到的返回值是false的时候，表单的提交功能就被取消了
+	-->
+	<form method="post" action="#" onsubmit="return login()">
+		账号:<input type="text" name="name" id="name">
+		密码:<input type="password" name="password">
+		<input type="submit" value="登陆" >
+	</form>
+	<script type="text/javascript">
+		function login(){
+			var name = document.getElementById('name');
+			if (name.value.length == 0) {
+				alert('用户名不能为空');
+				return false;
+			}
+			return true;
+		}
+	</script>
+</body>
+</html>

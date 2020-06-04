@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>节点属性</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.ds1{
+			color: green;
+		}
+		.ds2{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="d1">hello dom html</div>
+	<!-- 节点名称 -->
+	<script type="text/javascript">
+		function p(s){
+			document.write(s);
+			document.write('<br>');
+		}
+		var div1 = document.getElementById('d1');
+		p('document的节点名称:' + document.nodeName);
+		p('div元素节点的节点名称:' + div1.nodeName);
+		p('div下属性节点的节点名称:' + div1.attributes[0].nodeName);
+		p('div下内容节点的节点名称:' + div1.childNodes[0].nodeName);
+		document.write('<br>');
+	</script>
+
+	<!-- 节点值 -->
+	<script type="text/javascript">
+		 function p(s){
+			document.write(s);
+			document.write('<br>');
+		}
+		var div1 = document.getElementById('d1');
+		p('document是没有nodeValue的:' + document.nodeValue);
+		p('元素节点是没有nodeValue的:' + div1.nodeValue);
+		p('属性节点id的nodeValue:' + div1.attributes[0].nodeValue);
+		p('内容节点的nodeValue:' + div1.childNodes[0].nodeValue);
+		document.write('<br>');
+	</script>
+
+	<!-- 节点类型 -->
+	<!--
+		1 -- 元素
+		2 -- 属性
+		3 -- 文本
+		8 -- 注解
+		9 -- 文档
+	-->
+	<script type="text/javascript">
+		 function p(s){
+			document.write(s);
+			document.write('<br>');
+		}
+		var div1 = document.getElementById('d1');
+		p('document的nodeType是:' + document.nodeType);
+		p('元素节点的nodeType是:' + div1.nodeType);
+		p('属性节点的nodeType是:' + div1.attributes[0].nodeType);
+		p('内容节点的nodeType是:' + div1.childNodes[0].nodeType);
+	</script>
+
+	<!-- 元素的文本内容 -->
+	<script type="text/javascript">
+		function changeDiv1(){
+			document.getElementById('d1').childNodes[0].nodeValue = "通过childNodes[0].nodeValue改变内容";
+		}
+		function changeDiv2(){
+			document.getElementById('d1').innerHTML = "通过innerHTML改变内容";
+		}
+	</script>
+	<button onclick="changeDiv1()">通过内容节点改变div的内容</button>
+	<button onclick="changeDiv2()">通过innerHTML改变div的内容</button><br>
+
+	<!-- 元素上的属性 -->
+	<script type="text/javascript">
+		function get(){
+			var input1 = document.getElementById('input1');
+			var s = "id=" + input1.id + "<br>";
+			s += "value=" + input1.value + "<br>";
+			s += "class=" + input1.className + "<br>";
+			s += "test=" + input1.getAttribute("test") + "<br>";
+			s += "test=" + input1.attributes["test"].nodeValue + "<br>";
+			document.getElementById('d1').innerHTML = s;
+		}
+	</script>
+	<input id="input1" class="class1 class2" test="t1" value="这是一个输入框"><br>
+	<button onclick="get()">获取input属性</button><br>
+
+	<!-- 练习-如果账号是以a或者A开头的，那么就提示已经存在了。 -->
+	<input type="" id="input2">
+	<button onclick="yz()">验证</button>
+	<script type="text/javascript">
+		function yz(){
+			var input2 = document.getElementById('input2');
+			var s = input2.value;
+			if (!s.charAt(0).localeCompare('a') || !s.charAt(0).localeCompare('A')) {
+				document.getElementById('ds').innerHTML = "账号已存在";
+				document.getElementById('ds').className = 'ds2';
+			} else {
+				document.getElementById('ds').innerHTML = "账号可以使用";
+				document.getElementById('ds').className = 'ds1';
+			}
+		}
+	</script>
+	<div id="ds"></div><br>
+
+	<!-- 练习-切换不同的图片 -->
+	<img src="../image/imgs/14.jpg" id="img1"><br>
+	<button onclick="one()">通过src属性切换图片1</button><br>
+	<button onclick="tow()">通过属性节点切换图片2</button><br>
+	
+	<script type="text/javascript">
+		function one(){
+			document.getElementById('img1').src = '../image/imgs/15.jpg'
+		}
+		function tow(){
+			document.getElementById('img1').attributes['src'].nodeValue = '../image/imgs/14.jpg';
+		}
+	</script>
+
+	<!-- 练习-判断输入框里的值是否是整数(浮点数也不行) -->
+	<input type="" id="put1">
+	<button onclick="pd()">判断是否是整数(浮点数也不行)</button>
+	<div id="div2"></div>
+	<script type="text/javascript">
+		function pd(){
+			var s = document.getElementById('put1').value;
+			console.log('s=' + s);
+			if (isNaN(s) !== true && s != ' ') {
+				if (s.indexOf('.') != -1) {
+					document.getElementById('div2').innerHTML = '非整数';
+					document.getElementById('div2').className = 'ds2'
+				} else {
+					document.getElementById('div2').innerHTML = '是整数';
+					document.getElementById('div2').className = 'ds1'
+				}
+			} else {
+				document.getElementById('div2').innerHTML = '非整数';
+				document.getElementById('div2').className = 'ds2'
+			}
+		}
+	</script> 
+</body>
+</html>

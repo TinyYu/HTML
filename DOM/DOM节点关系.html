@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>节点关系</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 父节点关系 -->
+	<div id="parentDiv">
+		父DIV的内容
+		<div id="d1">第一个div</div>
+		<div id="d2">第二个div</div>
+		<div id="d3">第三个div</div>
+	</div>
+	<button onclick="showParent()">不断递归的d1的父节点</button>
+	<script type="text/javascript">
+		var node = null;
+		function showParent(){
+			if (node == null) {
+				node = document.getElementById('d1');
+			}
+			if (document == node) {
+				alert('已是根节点:document');
+			} else {
+				alert(node.parentNode);
+				// 通过parentNode获取父节点
+				node = node.parentNode;
+				// DIV[id=parentDiv] -> body-> html -> document
+				alert(node.innerHTML);
+			}
+		}
+	</script>
+
+	<!-- 同胞关系节点 -->
+	<div id="parentDiv1">
+		父Div的内容
+		<div id="d4">第一个div</div><div id="d5">第二个div</div>
+		<div id="d6">第三个div</div>
+	</div>
+	<button onclick="showPre()">获取d5的前一个同胞</button>
+	<button onclick="showNext()">获取d5的后一个同胞</button>
+	<script type="text/javascript">
+		function showPre(){
+			var d5 = document.getElementById('d5');
+			// previousSibling属性获取前一个同胞节点。
+			// 注意 d4和d5标签是紧挨着的，所以d5前一个节点是d4。
+			alert(d5.previousSibling.innerHTML);
+		}
+		function showNext(){
+			var d2 =document.getElementById('d5');
+			// nextSibling属性后一个同胞节点。
+			// 注意 d5和d6不是紧挨着 标签之间有任何字符、空白、换行都会产生文本元素。 所以获取到的节点是#text.
+			alert(d5.nextSibling.nodeName);
+		}
+	</script>
+
+	<!-- 子节点关系 -->
+	<div id="parentDiv3">
+		父Div的内容
+		<div id="d7">第一个div</div>
+		<div id="d8">第二个div</div>
+		<div id="d9">第三个div</div></div>
+	<button onclick="showfirst()">第一个节点</button>
+	<button onclick="showlast()">最后一个子节点</button>
+	<button onclick="showall()">所有子节点数量</button>
+	<script type="text/javascript">
+		function showfirst(){
+			var div = document.getElementById('parentDiv3');
+			// 注:firstChild 如果父节点的开始标签和第一个元素的开始标签之间有文本、空格、换行，那么firstChild第一个子节点将会是文本节点，不会是第一个元素节点
+			alert(div.firstChild.nodeName);
+		}
+		function showlast(){
+			var div = document.getElementById('parentDiv3');
+			// 注:lastChild 和firstChild同理。 在本例中故意让第3个元素的结束标签与div的结束标签紧挨着，所以最后一个子节点就是第三个标签
+			alert(div.lastChild.nodeName);
+		}
+		function showall(){
+			var div = document.getElementById('parentDiv3');
+			// 注: 子元素个数一共是6个。 因为parentDiv的子节点是 文本节点接着一个元素节点，重复3次。 所以一共是6个。
+			alert(div.childNodes.length);
+		}
+	</script>
+
+	<!-- childNodes和children的区别 -->
+	<div id="parentDiv4">
+		<div id="d1">第一个div</div>
+		<div id="d2">第二个div</div>
+		<div id="d3">第三个div</div></div>
+ 
+	<button onclick="showNumber1()">通过childNodes获取子节点总数</button>
+	<button onclick="showNumber2()">通过children()获取子节点总数</button>
+	<script type="text/javascript">
+		function showNumber1(){
+			alert(document.getElementById('parentDiv4').childNodes.length);
+		}
+		function showNumber2(){
+			alert(document.getElementById('parentDiv4').children.length);
+		}
+	</script>
+</body>
+</html>

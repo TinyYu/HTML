@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>样式</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table{
+			width: 100%;
+			/*合并边框模型*/
+			border-collapse: collapse;
+		}
+		td{
+			width: 25%;
+			text-align: center;
+		}
+		tr{
+			border-bottom: 1px solid #E0E0E0;
+		}
+	</style>
+</head>
+<body>
+	<!-- 隐藏和显示 -->
+	<button onclick="xs()">显示div</button>
+	<button onclick="yc()">隐藏div</button>
+	<br>
+	<div id="d">这是一个div</div>
+	<script type="text/javascript">
+		function xs(){
+			var d = document.getElementById('d');
+			d.style.display = 'block'
+		}
+		function yc(){
+			var d = document.getElementById('d');
+			d.style.display = 'none';
+		}
+	</script>
+
+	<!-- 改变背景颜色 -->
+	<div id="d1" style="background-color: pink">hello html dom</div>
+	<button onclick="change()">改变div背景颜色</button>
+	<script type="text/javascript">
+		function change(){
+			var d1 = document.getElementById('d1');
+			d1.style.backgroundColor = 'green';
+		}
+	</script>
+
+	<table>
+		<tr>
+			<td>id</td>
+			<td>名称</td>
+			<td>血量</td>
+			<td>伤害</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>gareen</td>
+			<td>340</td>
+			<td>58</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>teemo</td>
+			<td>320</td>
+			<td>76</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>annie</td>
+			<td>380</td>
+			<td>38</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>deadbrother</td>
+			<td>400</td>
+			<td>90</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		var a = document.getElementsByTagName('tr');
+		for (var i = 0; i < a.length; i++) {
+			if (i % 2 != 0) {
+				a[i].style.backgroundColor = '#F7F7F7';
+			}
+		}
+	</script>
+</body>
+</html>

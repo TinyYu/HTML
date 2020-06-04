@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>获取节点</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 通过id获取元素节点 -->
+	<div id="div1">hello html dom</div>
+	<script type="text/javascript">
+		var div1 = document.getElementById('div1');
+		document.write(div1);
+		document.write('<br>');
+		document.write('<br>');
+	</script>
+
+	<!-- 通过标签名称获取元素节点 -->
+	<div>hello javascript</div>
+	<div>hello bom</div>
+	<div>hello dom</div>
+	<script type="text/javascript">
+		var divs = document.getElementsByTagName('div');
+		for (var i = 0; i < divs.length; i++) {
+			document.write(divs[i]);
+			document.write('<br>');
+		}
+		document.write('<br>');
+	</script>
+
+	<!-- 通过类名获取元素节点 -->
+	<h1 class="d">hello javascript</h1>
+	<h2 class="d">hello bom</h2>
+	<div class="d">hello dom</div>
+	<script type="text/javascript">
+		var elements = document.getElementsByClassName('d');
+		for (var i = 0; i < elements.length; i++) {
+			document.write(elements[i]);
+			document.write('<br>');
+		}
+		document.write('<br>');
+	</script>
+
+	<!-- 通过表单元素的name获取元素节点 -->
+	用户名:<input name="username"><br>
+	密码:<input name="userpassword"><br>
+	<script type="text/javascript">
+		var elements = document.getElementsByName('username');
+		for (var i = 0; i < elements.length; i++) {
+			document.write(elements[i]);
+			document.write('<br>');
+		}
+	</script>
+
+	<!-- 获取不到元素节点 -->
+	<script type="text/javascript">
+		// javascript是解释语言，是顺序执行的。 在执行到 document.getElementById的时候，div标签还没有加载，所以无法获取。
+		var  div1 = document.getElementById("d1");
+		document.write(div1);
+	</script>
+	<div id="d1">hello dom html</div>
+
+	<!-- 获取属性节点 -->
+	<div id="d2" class="abc" align="center">hello dom html</div>
+	<script type="text/javascript">
+		var div1 = document.getElementById('d2');
+		var as = div1.attributes;
+		document.write('div中共有' + as.length + "个属性");
+		document.write("分别是:");
+		for (var i = 0; i < as.length; i++) {
+			document.write('<br>');
+			document.write(as[i].nodeName);
+			document.write(':');
+			document.write(as[i].nodeValue);
+		}
+		document.write("<br>");
+		document.write("div的id属性值是:" + as['id'].nodeValue);
+	</script>
+
+	<!-- 获取内容节点 -->
+	<div id="d3" class="abc1" align="center">hello dom html</div>
+	<script type="text/javascript">
+		var div1 = document.getElementById('d3');
+		var content = div1.childNodes[0];
+		document.write("div的内容节点是:" + content.nodeName);
+		document.write("<br>");
+		document.write("div的内容节点值是:" + content.nodeValue);
+	</script>
+</body>
+</html>
