@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>对象转换</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// 字符串转json对象
+		var s1 = "{\"name\":\"盖伦\"";
+		var s2 = ",\"hp\":616}";
+		var s3 = s1 + s2;
+		document.write('这是一个json格式的字符串:' + s3);
+		document.write('<br>');
+		var gareen = eval("("+ s3 +")");
+		document.write('这是一个json对象:' + gareen + '<br>');
+
+		// json对象转字符串
+		var hero = {"name":'盖伦',"hp":616};
+		document.write('这是一个json对象:' + hero);
+		document.write('<br>');
+		var heroString = JSON.stringify(hero);
+		document.write('这是一个json字符串:' + heroString);
+	</script>
+</body>
+</html>

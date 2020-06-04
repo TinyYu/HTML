@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<button id="b1">隐藏div</button>
+	<button id="b2">显示div</button>
+	<br><br>
+	<div id="d">
+		这是一个div
+	</div>
+	<!-- 导入第三方库 -->
+	<script src="../lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		// $() : 表示文档加载
+		/*  
+			这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。
+			换句话说，写在这里面的JQuery代码都是文档加载好之后的。
+		    就不会有获取一个还没有加载好的图片这种问题了。
+		*/
+		$(function(){
+			$("#b1").click(function(){
+				$("#d").hide();
+			});
+			$("#b2").click(function(){
+				$("#d").show();
+			});
+		});
+
+
+		// 另一种写法
+		/* $(document).ready(function(){
+		 	$("#b1").click(function(){
+		 		$("#d").hide();
+		 	});
+		 	$("#b2").click(function(){
+		 		$("#d").show();
+		 	});
+		  });
+		*/
+
+
+		/*
+		$(function(){
+			// 通过$("#id") 获取到的是一个 JQuery 对象
+			document.write($("#d"));
+			document.close();
+		});
+		*/
+
+		// 增加监听器
+		$(function(){
+			$("#b3").click(function(){
+				alert("点击了按钮");
+			});
+		});
+	</script>
+	<button id="b3">按钮</button>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>常用方法</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 取值 -->
+	<button id="b1">取值</button>
+	<br>
+	<br>
+	<input type="text" id="input1" value="默认值">
+	<script src="../lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#b1").click(function(){
+				// 取值 -- val()
+				alert($("#input1").val());
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<!-- 获取元素内容 包含子元素标签-->
+	<button id="b2">获取文本内容包含子元素标签</button>
+	<br>
+	<br>
+	<div id="div1">
+		这个是div的内容
+		<span>这是div里的span的内容</span>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#b2").click(function(){
+				// 通过html() 获取元素内容,如果有子元素，保留标签
+				alert($("#div1").html());
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<!-- 获取元素内容 不包含子元素标签-->
+	<button id="b3">获取文本内容包含子元素标签</button>
+	<br>
+	<br>
+	<div id="div2">
+		这个是div的内容
+		<span>这是div里的span的内容</span>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#b3").click(function(){
+				alert($("#div2").text());
+			});
+		});
+	</script>
+</body>
+</html>

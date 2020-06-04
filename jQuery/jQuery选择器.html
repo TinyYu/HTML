@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>选择器</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script src="../lib/jquery.min.js"></script>
+	<style type="text/css">
+		.pink{
+			background-color: pink;
+		}
+	</style>
+	
+	<!-- 元素选择器 -->
+	<div>hello jquery</div>
+	<div>hello jquery</div>
+	<div>hello jquery</div>
+	<button id="b1">给所有的div元素增加背景色</button>
+	
+	<script type="text/javascript">
+		$(function(){
+			$("#b1").click(function(){
+				// 元素选择器
+				$("div").addClass("pink");
+			});
+		});
+	</script>
+	<br><br>
+
+	<!-- id选择器 -->
+	<div id="d1">hello jquery</div>
+	<div id="d2">hello jquery</div>
+	<div id="d3">hello jquery</div>
+	<button id="b2">给id=d1的div增加背景色</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#b2").click(function(){
+				// id选择器
+				$("#d1").addClass("pink");
+			});
+		});
+	</script>
+
+	<!-- 类选择器 -->
+	<div class="d1">hello jquery</div>
+	<div class="d2">hello jquery</div>
+	<div class="d3">hello jquery</div>
+	<button id="b3">给class=d1的div增加背景色</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#b3").click(function(){
+				// id选择器
+				$(".d1").addClass("pink");
+			});
+		});
+	</script>
+
+	<!-- 层级 -->
+	<div class="d">
+		<span>hello jquery</span>
+	</div>
+	<div class="d">
+		<span>hello jquery</span>
+	</div>
+	<div id="div1">
+		<span>hello jquery</span>
+	</div>
+	<button id="b4">给id=div1下的span增加背景色</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#b4").click(function(){
+				// $("selector1 selector2")
+				// 选择 selector1下的selector2元素 。
+				$("div#div1 span").addClass("pink");
+			});
+		});
+	</script>
+
+	<!-- 最先最后 -->
+	<div id="cs1">
+		<span>hello jquery</span>
+	</div>
+	<div id="cs1">
+		<span>hello jquery</span>
+	</div>
+	<div id="cs1">
+		<span>hello jquery</span>
+	</div>
+	<button id="bu1">第一个增加颜色背景</button>
+	<button id="bu2">最后一个增加颜色背景</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#bu1").click(function(){
+				// $(selector:first) 满足选择器条件的第一个元素
+				$("div#cs1:first").addClass("pink");
+			});
+			$("#bu2").click(function(){
+				// $(selector:last) 满足选择器条件的最后一个元素
+				$("div#cs1:last").addClass("pink");
+			});
+		});
+	</script>
+
+	<!-- 其偶 -->
+	<div id="cs2">
+  		<span>Hello JQuery 0</span>
+	</div>
+	<div id="cs2">
+ 	  	<span>Hello JQuery 1</span>
+	</div>
+	<div id="cs2">
+  		<span>Hello JQuery 2</span>
+	</div>
+	<div id="cs2">
+  		<span>Hello JQuery 3</span>
+	</div>
+	<div id="cs2">
+ 	  	<span>Hello JQuery 4</span>
+	</div>
+	<div id="cs2">
+  		<span>Hello JQuery 5</span>
+	</div>
+	<div id="cs2">
+  		<span>Hello JQuery 6</span>
+	</div>
+	<button id="bu3">切换奇数背景色</button>
+	<button id="bu4">切换偶数背景色</button>
+	<script type="text/javascript">
+		$(function(){
+			$("bu3").click(function(){
+				$("div#cs2:old").toggleClass("pink");
+			});
+			$("bu4").click(function(){
+				$("div#cs2:even").toggleClass("green");
+			});
+		});
+	</script>
+</body>
+</html>

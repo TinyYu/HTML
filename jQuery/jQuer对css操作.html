@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>操作css</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="d">hello jquery</div>
+	<!-- 增加css -->
+	<style type="text/css">
+		.pink{
+			background-color: pink;
+		}
+		.green{
+			background-color: green;
+		}
+	</style>
+	<button id="b1">添加背景颜色</button>
+	<script src="../lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#b1").click(function(){
+				$("#d").addClass("pink");
+			});
+		});
+	</script>
+	<br>
+
+	<!-- 删除css -->
+	<button id="b2">删除背景颜色</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#b2").click(function(){
+				$("#d").removeClass("pink");
+			});
+		});
+	</script>
+	<br>
+
+	<!-- 切换css -->
+	<button id="b3">切换背景颜色</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#b3").click(function(){
+				$("#d").toggleClass("green")
+			});
+		});
+	</script>
+	<br>
+
+	<!-- css函数 -->
+	<button id="b4">设置单一样式</button>
+	<button id="b5">设置多种样式</button>
+	<br><br>
+	<div id="div1">
+		单一样式，只设置背景色
+	</div>
+	<div id="div2">
+		多种样式，不仅设置背景色，还设置字体颜色
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#b4").click(function(){
+				$("#div1").css("background-color","pink");
+			});
+			$("#b5").click(function(){
+				$("#div2").css({"background-color":"pink","color":"green"});
+			});
+		});
+	</script>
+</body>
+</html>
