@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script src="../lib/jquery.min.js"></script>
+
+	<!-- 加载 -->
+	<img id="img" src="../image/example.gif">
+	<div id="message1"></div>
+	<div id="message2"></div>
+	<script type="text/javascript">
+		// 页面加载有两种方式表示
+		// 1. $(document).ready();
+		// 2. $(); 这种比较常用
+		$(document).ready(function(){
+    		$("#message1").html("页面加载成功");
+ 		});
+ 		$(function (){
+ 			// 图片加载用load()函数
+ 			$("#img").load($("#message2").html("图片加载成功"));	
+ 		})
+  		
+
+	</script>
+	
+
+	<!-- 点击 -->
+	<div id="d1"></div>
+	<input type="button" value="测试单击和双击" id="b1">
+	<script type="text/javascript">
+		$(function() {
+			$("#b1").click(function (){
+				// click() 表示单击
+				// 注: 空白键和回车键也可以造成click事件
+				$("#d1").html("单击");
+			});
+			$("#b1").dblclick(function (){
+				// dblclick() 表示双击
+				// 只有双击鼠标才能造成dblclick事件
+				$("#d1").html("双击");
+			});
+		});
+	</script>
+
+	<!-- 键盘 -->
+	<style type="text/css">
+		table#table1{
+			border-collapse: collapse;
+		}
+		tr#action div{
+			border: 1px solid;
+			background-color: red;
+			height: 50px;
+		}
+		table#table1 td{
+			width: 25%;
+			border:1px solid #d1d1d1;
+		}
+		tr#key div,tr#value div{
+			background-color: #d1d1d1;
+			height: 50px;
+		}
+	</style>
+	<br><br>
+	输入框:<input id="i">
+	<table width="100%" id="table1">
+		<tr id="tr1">
+			<td></td>
+			<td>keydown</td>
+			<td>keypress</td>
+			<td>keyup</td>
+		</tr>
+		<tr id="action">
+			<td>行为</td>
+			<td><div id="keydownAction"></div></td>
+			<td><div id="keypressAction"></div></td>
+			<td><div id="keyupAction"></div></td>
+		</tr>
+		<tr id="key">
+			<td>按键</td>
+			<td><div id="keydownKey"></div></td>
+			<td><div id="keypressKey"></div></td>
+			<td><div id="keyupKey"></div></td>
+		</tr>
+		<tr id="value">
+			<td>取值</td>
+			<td><div id="keydownValue"></div></td>
+			<td><div id="keypressValue"></div></td>
+			<td><div id="keyupValue"></div></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		var order = 0;
+		var clearTimer = null;
+		// 先后顺序： 按照 keydown keypress keyup 顺序发生
+		$(function (){
+			// keydown和keyup 能获取所有按键，不能识别大小写
+			//按下键盘
+			$("#i").keydown(function (e){
+				var selector = "keydown";
+				show(selector,e,$(this).val());
+			});
+			// keypress 不能获取功能键，如F1 SHIFT等，能够识别大小写
+			//按住键盘
+			$("#i").keypress(function (e){
+				var selector = "keypress";
+				show(selector,e,$(this).val());
+			});
+			// keydown和keyup 能获取所有按键，不能识别大小写
+			//键盘弹起
+			$("#i").keyup(function (e){
+				var selector = "keyup";
+				show(selector,e,$(this).val());
+			});
+		});
+		function show(selector,e,inputvalue){
+			clearTimeout(clearTimer);
+			action(selector);
+			key(selector,e);
+			value(selector,inputvalue);
+			clearTimer = setTimeout(clear,4000);
+		}
+		//改变id=**Action div的背景颜色和内容
+		function action(selector){
+			$("#" + selector + "Action").css("background-color","green");
+			$("#" + selector + "Action").html("顺序:" + (++order));
+		}
+		// 按键
+		function value(selector,value){
+			// 按键 ASCII码表
+			$("#" + selector + "Value").html(value);
+		}
+		// 取值
+		function key(selector,e){
+			// 通过event对象的which属性获取键盘的值 ASCII码表
+			$("#" + selector + "Key").html(e.which);
+		}
+		function clear(){
+			order = 0;
+			$("tr#action div").css("background-color","red");
+			$("tr div").html("");
+		}
+	</script>
+	<br><br>
+
+	<!-- 鼠标 -->
+	<style type="text/css">
+		table#table2{
+			border-collapse: collapse;
+		}
+		table#table2 td{
+			border:1px solid #d1d1d1;
+		}
+		table#table2 div{
+			background-color: pink;
+			margin: 10px;
+			padding: 10px 0px;
+		}
+		table#table2 div.subDiv{
+			background-color: green;
+			width: 400px;
+			margin: 0px auto;
+		}
+	</style>
+	<table id="table2">
+		<tr>
+			<td width="150px">鼠标事件</td>
+			<td>效果演示</td>
+		</tr>
+		<tr>
+			<td>mousedown<br>mouseup<br></td>
+			<td><button id="downup">鼠标按下弹起测试</button></td>
+		</tr>
+		<tr>
+			<td>mousemove<br>mouseenter<br>mouseover<br>mouseleave<br>mouseout<br></td>
+			<td>
+				<div id="move">mousemove 当鼠标进入元素，每移动一下就都会被调用  次数<span class="number">0</span></div>
+				<div id="enter">mouseenter 当鼠标进入元素，调用一次  次数<span class="number">0</span></div>
+				<div id="over">mouseover 当鼠标进入元素，调用一次  次数<span class="number">0</span></div>
+				<div id="leave">mouseleave 当鼠标离开元素，调用一次  次数<span class="number">0</span></div>
+				<div id="out">mouseout 当鼠标离开元素，调用一次  次数<span class="number">0</span></div>
+			</td>
+		</tr>
+		<tr>
+			<td>mouseenter<br>mouseover</td>
+			<td>
+				<div id="enter1">mouseenter 经过其子元素不会被调用  次数<span class="number">0</span>
+					<div class="subDiv">div中的子元素</div>
+				</div>
+				<div id="over1">mouseover 经过其子元素会被调用  次数<span class="number">0</span>
+					<div class="subDiv">div中的子元素</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>mouseleave<br>mouseout</td>
+			<td>
+				<div id="leave1">mouseleave 经过其子元素不会被调用  次数<span class="number">0</span>
+					<div class="subDiv">div中的子元素</div>
+				</div>
+				<div id="out1">mouseout 经过其子元素会被调用  次数<span class="number">0</span>
+					<div class="subDiv">div中的子元素</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		$(function (){
+			$("#downup").mousedown(function(){
+				$(this).html("鼠标按下");
+			});
+			$("#downup").mouseup(function(){
+				$(this).html("鼠标弹起");
+			});
+
+			var moveNumber = 0;
+			var enterNumber = 0;
+			var overNumber = 0;	
+			var leaveNumber = 0;
+			var outNumber = 0;
+
+			var enterNumber1 = 0;
+			var overNumber1 = 0;
+
+			var leaveNumber1 = 0;
+			var outNumber1 = 0;
+			// mousemove表示鼠标进入 当鼠标进入元素，每移动一下都会被调用
+			$("#move").mousemove(function(){
+				$("#move span.number").html(++moveNumber);
+			});
+			// mouseenter表示鼠标进入
+			$("#enter").mouseenter(function(){
+				$("#enter span.number").html(++enterNumber);
+			});
+			// mouseover表示鼠标进入
+			$("#over").mouseover(function(){
+				$("#over span.number").html(++overNumber);
+			});
+			// mouseleave表示鼠标离开
+			$("#leave").mouseleave(function(){
+				$("#leave span.number").html(++leaveNumber);
+			});
+			// mouseout表示鼠标离开
+			$("#out").mouseout(function(){
+				$("#out span.number").html(++outNumber);
+			});
+
+			// mouseenter: 当鼠标经过其子元素不会被调用
+			$("#enter1").mouseenter(function(){
+				$("#enter1 span.number").html(++enterNumber1);
+			});
+			// mouseover：当鼠标经过其子元素会被调用
+			$("#over1").mouseover(function(){
+				$("#over1 span.number").html(++overNumber1);
+			});
+
+			// mouseleave: 当鼠标经过其子元素不会被调用
+			$("#leave1").mouseleave(function(){
+				$("#leave1 span.number").html(++leaveNumber1);
+			});
+			// mouseout：当鼠标经过其子元素会被调用
+			$("#out1").mouseout(function(){
+				$("#out1 span.number").html(++outNumber1);
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<!-- 焦点 -->
+	<input type="text" id="input1">
+	<script type="text/javascript">
+		$(function (){
+			$("#input1").focus(function(){
+				$(this).val("获取焦点");
+			});
+			$("#input1").blur(function(){
+				$(this).val("失去焦点");
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<!-- 改变 -->
+	<div id="message4"></div>
+	<input type="text" id="input2"><br>
+	<script type="text/javascript">
+		$(function (){
+			$("#input2").change(function(){
+				var text = $(this).val();
+				$("#message4").html("input1的内容变为了:" + text);
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<!-- 提交 -->
+	<form id="form" action="#">
+		账号:<input type="text" name="name"><br>
+		密码:<input type="password" name="password">
+		<input type="submit" value="登陆">
+	</form>
+	<script type="text/javascript">
+		$(function (){
+			$("#form").submit(function (){
+				alert("提交账号密码");
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<!-- 绑定事件 -->
+	<div id="message5"></div>
+	<button id="bu1">测试单击和双击</button>
+	<script type="text/javascript">
+		$(function (){
+			// 以上所有的事件处理，都可以通过on() 绑定事件来处理
+			$("#bu1").on("click",function (){
+				$("#message5").html("单击按钮");
+			});
+			$("#bu1").on("dblclick",function (){
+				$("#message5").html("双击按钮");
+			});
+		});
+	</script>
+
+	<!-- 触发事件 -->
+	<div id="message6"></div>
+	<button id="bu2">测试单击和双击</button>
+	<script type="text/javascript">
+		$(function (){
+			$("#bu2").on("click",function (){
+				$("#message6").html("单击按钮");
+			});
+			$("#bu2").on("dblclick",function (){
+				$("#message6").html("双击按钮");
+			});
+			// 触发事件，在本例中，文档加载好之后，就触发dblclick双击事件，而不是通过去手动双击
+			$("#bu2").trigger("dblclick");
+		});
+	</script>
+</body>
+</html>

@@ -10,6 +10,12 @@
 		.pink{
 			background-color: pink;
 		}
+		.green{
+			background-color: green;
+		}
+		.blue{
+			background-color: blue;
+		}
 	</style>
 	
 	<!-- 元素选择器 -->
@@ -103,6 +109,7 @@
 	</script>
 
 	<!-- 其偶 -->
+	<!-- 因为是基零的，所以第一排的下标其实是0(是偶数) -->
 	<div id="cs2">
   		<span>Hello JQuery 0</span>
 	</div>
@@ -128,12 +135,163 @@
 	<button id="bu4">切换偶数背景色</button>
 	<script type="text/javascript">
 		$(function(){
-			$("bu3").click(function(){
-				$("div#cs2:old").toggleClass("pink");
+			$("#bu3").click(function(){
+				$("div#cs2:odd").toggleClass("pink");
 			});
-			$("bu4").click(function(){
+			$("#bu4").click(function(){
 				$("div#cs2:even").toggleClass("green");
 			});
+		});
+	</script>
+
+	<!-- 可见性 -->
+	<div id="cs3">
+  		<span>Hello JQuery 0</span>
+	</div>
+	<div id="cs3">
+ 	  	<span>Hello JQuery 1</span>
+	</div>
+	<div id="cs3">
+  		<span>Hello JQuery 2</span>
+	</div>
+	<div id="cs3">
+  		<span>Hello JQuery 3</span>
+	</div>
+	<div id="cs3">
+ 	  	<span>Hello JQuery 4</span>
+	</div>
+	<div id="cs3">
+  		<span>Hello JQuery 5</span>
+	</div>
+	<div id="cs3">
+  		<span>Hello JQuery 6</span>
+	</div>
+	<button id="but1">隐藏可见的</button>
+	<button id="but2">显示不可见的</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#but1").click(function(){
+				// $(selector:visible) 满足选择器条件的可见的元素
+				/*
+					div:visible 表示选中可见的div
+					div :visible(有空格) 表示选中div下可见的元素
+				*/
+				$("div:visible").hide();
+			});
+			$("#but2").click(function(){
+				// $(selector:hidden) 满足选择器条件的不可见的元素
+				$("div:hidden").show();
+			});
+		});
+	</script>
+
+	<!-- 属性 -->
+	<style type="text/css">
+		.border{
+			border:1px blue solid;
+		}
+	</style>
+	<div id="pink">
+   		 id=pink的div
+	</div> 
+	<div id="green">
+	     id=green的div
+    </div>
+	<div>
+   		 没有id的div
+	</div>
+	<button id="butt1">给有id属性的div切换边框</button>
+	<button id="butt2">给id=pink的div切换边框</button>
+	<button id="butt3">给id!=pink的div切换边框</button>
+	<button id="butt4">给id以p开头的div切换边框</button>
+	<button id="butt5">给有id以k结尾的div切换边框</button>
+	<button id="butt6">给有id包含ee的div切换边框</button>
+	<script type="text/javascript">
+		$(function(){
+			$("#butt1").click(function(){
+				$("div[id]").toggleClass("border");
+			});
+			$("#butt2").click(function(){
+				$("div[id='pink']").toggleClass("border");
+			});
+			$("#butt3").click(function(){
+				$("div[id!='pink']").toggleClass("border");
+			});
+			$("#butt4").click(function(){
+				$("div[id^='p']").toggleClass("border");
+			});
+			$("#butt5").click(function(){
+				$("div[id$='k']").toggleClass("border");
+			});
+			$("#butt6").click(function(){
+				$("div[id*='ee']").toggleClass("border");
+			});
+		});
+	</script>
+
+	<!-- 当前元素 -->
+	<button id="button1">点击隐藏</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#button1").click(function() {
+				$(this).hide();
+			});
+		});
+	</script>
+
+	<!-- 练习-斑马线 -->
+	<style type="text/css">
+		table{
+			width: 100%;
+			/*合并边框模型*/
+			border-collapse: collapse;
+		}
+		td{
+			width: 25%;
+			text-align: center;
+		}
+		tr{
+			border-bottom: 1px solid #E0E0E0;
+		}
+		.border1{
+			background-color: #F7F7F7;
+		}
+	</style>
+	<table>
+		<tr>
+			<td>id</td>
+			<td>名称</td>
+			<td>血量</td>
+			<td>伤害</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>gareen</td>
+			<td>340</td>
+			<td>58</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>teemo</td>
+			<td>320</td>
+			<td>76</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>annie</td>
+			<td>380</td>
+			<td>38</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>deadbrother</td>
+			<td>400</td>
+			<td>90</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		$(function() {
+			$("tr:odd").toggleClass("border1");
 		});
 	</script>
 </body>

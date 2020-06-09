@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数组操作</title>
+	<meta charset="utf-8">
+	<script src="../lib/jquery.min.js"></script>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		// 遍历数组
+		var a = new Array(1,2,3);
+		$.each(a,function(i,n){
+			document.write("元素[" + i + "]:" + n + "<br>");
+		});
+		document.close();
+		document.write("<br><br>");
+
+		// 去除重复
+		var a1 = new Array(5,2,4,2,3,3,1,4,2,5);
+		// 调用sort对数组的内容进行排序。
+		a1.sort();
+		// 注意 ： 执行unique之前，要先调用sort对数组的内容进行排序。
+		$.unique(a1);
+		$.each(a1,function(i,n){
+			document.write("元素[" + i + "]:" + n + "<br>");
+		});
+		document.close();
+
+		// 是否存在
+		var a2 = new Array(1,2,3,4,5,6,7,8);
+		// $.inArray 返回元素在数组中的位置 ，如果不存在返回-1
+		document.write($.inArray(9,a2));
+		document.close();
+	</script>
+</body>
+</html>

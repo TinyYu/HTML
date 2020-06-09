@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>对象转换</title>
+	<meta charset="utf-8">
+	<script src="../lib/jquery.min.js"></script>
+</head>
+<body>
+	<!-- JQuery转换为DOM -->
+	<div id="d">hello jquery</div>
+	<button id="b1">jquery对象div转换为DOM对象d</button>
+	<button id="b2">DOM对象div转换为jquery对象d</button>
+	<script type="text/javascript">
+		$(function (){
+			$("#b1").click(function(){
+				var div = $("#d");
+				// 通过get(0)或者[0] 把JQuery对象转为DOM对象
+				var d = div[0];
+				var s = "jquery对象是:" + div;
+				s +="\n对应的DOM对象是:" + d;
+				alert(s);
+			});
+			$("#b2").click(function(){
+				var div = document.getElementById('d');
+				// 通过$() 把DOM对象转为JQuery对象
+				var d = $(div);
+				var s = "DOM对象是:" + div;
+				s +="\n对应的jquery对象是:" + d;
+				alert(s);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表单对象属性</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table{
+			border-collapse: collapse;
+			table-layout: fixed;
+			width: 80px;
+		}
+		button{
+			display: block;
+		}
+		table td{
+			border-bottom: 1px solid #ddd;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td rowspan="13" valign="top" width="120px">
+				<div>
+					<!-- :enabled会选择可用的输入元素 注：输入元素的默认状态都是可用 -->
+					<button value=":enabled" class="b">切换:enabled</button>
+					<!-- :disabled会选择不可用的输入元素 -->
+					<button value=":disabled" class="b">切换:disabled</button>
+					<!-- :checked会选择被选中的单选框和复选框 注： checked在部分浏览器上(火狐,chrome)也可以选中selected的option -->
+					<button value=":checked" class="b">切换:checked</button>
+					<!-- :selected会选择被选中的option元素 -->
+					<button value=":selected" class="b2">:selected数量</button>
+				</div>
+			</td>
+			<td width="120px">说明</td>
+			<td width="120px">表单对象属性</td>
+			<td width="100px">示例</td>
+		</tr>
+		<tr>
+			<!-- enabled是表示启用该项 -->
+			<td>enabled按钮</td>
+			<td>:enabled</td>
+			<td><input type="button" enabled="enabled" value="enabled的按钮"></td>
+		</tr>
+		<tr>
+			<!-- disbled表示禁用该项 -->
+			<td>disabled按钮</td>
+			<td>:disabled</td>
+			<td><input type="button" disabled="disabled" value="disabled的按钮"></td>
+		</tr>
+		<tr>
+			<td>选中的复选框</td>
+			<td>:checked</td>
+			<td>
+				<!-- radio单选必须添加name属性 -->
+				<input type="radio" checked="checked"><br>
+				<input type="radio"><br>
+				<input type="checkbox"><br>
+				<input type="checkbox" checked="checked">
+			</td>
+		</tr>
+		<tr>
+			<td>选中的下拉列表</td>
+			<td>:selected</td>
+			<td>
+				<!-- multiple 属性规定输入字段可选择多个值。 -->
+				<select size="3" multiple="multiple">
+					<option selected="selected">lol</option>
+					<option>星际</option>
+					<option selected="selected">守望</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<script src="../lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".b").click(function() {
+				var value = $(this).val();
+				$("td[rowspan!=13] " + value).toggle(500);
+			});
+			$(".b2").click(function() {
+				var value = $(this).val();
+				var options = $("td[rowspan!=13] " + value);
+				alert("选中了" + options.length + "数量");
+			});
+		});
+	</script>
+</body>
+</html>

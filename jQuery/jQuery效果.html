@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>效果</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script src="../lib/jquery.min.js"></script>
+
+	<!-- 显示 隐藏 切换 -->
+	<style type="text/css">
+		.d1{
+			background-color: pink;
+			width: 200px;
+			height: 100px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+	</style>
+	<div id="d1" class="d1">用于演示效果的div</div>
+	<button id="b1">立即隐藏</button>
+	<button id="b2">立即显示</button>
+	<button id="b3">立即切换</button>
+	<button id="b4">延时显示</button>
+	<button id="b5">延时隐藏</button>
+	<button id="b6">延时显示</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#b1").click(function() {
+				$("#d1").hide();
+			});
+			$("#b2").click(function() {
+				$("#d1").show();
+			});
+			$("#b3").click(function() {
+				$("#d1").toggle();
+			});
+			$("#b4").click(function() {
+				$("#d1").show(1000);
+			});
+			$("#b5").click(function() {
+				$("#d1").hide(1000);
+			});
+			$("#b6").click(function() {
+				$("#d1").toggle(1000);
+			});
+		});
+	</script>
+	<br>
+
+	<!-- 向上滑动 向下滑动 滑动切换 -->
+	<div id="d2" class="d1">用于演示效果的div</div>
+	<button id="bu1">向上滑动</button>
+	<button id="bu2">向下滑动</button>
+	<button id="bu3">滑动切换</button>
+	<button id="bu4">延时向上滑动</button>
+	<button id="bu5">延时向下滑动</button>
+	<button id="bu6">延时滑动切换</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#bu1").click(function() {
+				$("#d2").slideUp();
+			});
+			$("#bu2").click(function() {
+				$("#d2").slideDown();
+			});
+			$("#bu3").click(function() {
+				$("#d2").slideToggle();
+			});
+			$("#bu4").click(function() {
+				$("#d2").slideUp(1000);
+			});
+			$("#bu5").click(function() {
+				$("#d2").slideDown(1000);
+			});
+			$("#bu6").click(function() {
+				$("#d2").slideToggle(1000);
+			});
+		});
+	</script>
+	<br>
+
+	<!-- 淡入 淡出 淡入淡出切换 指定淡入程度 -->
+	<style type="text/css">
+		.d2{
+			background-color: pink;
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<div id="d3" class="d1">用于演示效果的div</div>
+	<table>
+		<tr>
+			<td>
+				<div id="div1" class="d2">用于演示fadeTo 20%</div>
+				<div id="div2" class="d2">用于演示fadeTo 50%</div>
+				<div id="div3" class="d2">用于演示fadeTo 80%</div>
+			</td>
+	</table>
+	<button id="but1">淡入</button>
+	<button id="but2">淡出</button>
+	<button id="but3">淡入淡出切换</button>
+	<button id="but4">延时淡入</button>
+	<button id="but5">延时淡出</button>
+	<button id="but6">延时淡入淡出切换</button>
+	<button id="but7">指定淡入程度-fadeTo</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#but1").click(function() {
+				$("#d3").fadeOut();
+			});
+			$("#but2").click(function() {
+				$("#d3").fadeIn();
+			});
+			$("#but3").click(function() {
+				$("#d3").fadeToggle();
+			});
+			$("#but4").click(function() {
+				$("#d3").fadeOut(1000);
+			});
+			$("#but5").click(function() {
+				$("#d3").fadeIn(1000);
+			});
+			$("#but6").click(function() {
+				$("#d3").fadeToggle(1000);
+			});
+			$("#but7").click(function() {
+				// fadeTo跟的参数是0-1之间的小数。 0表示不淡入，1表示全部淡入
+				$("#div1").fadeTo("slow",0.2);
+				$("#div2").fadeTo("slow",0.5);
+				$("#div3").fadeTo("slow",0.8);
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<style type="text/css">
+		button.b1{
+			display: block;
+		}
+		.d3{
+			background-color: pink;
+			width: 400px;
+			height: 100px;
+			font-size: 12px;
+			position: relative;
+		}
+	</style>
+	<button id="butt1" class="b1">自定义动画</button>
+	<br>
+	<br>
+	<div id="div4" class="d3">
+		<p>1.向右移动100px</p>
+		<p>2.向左下移动50px,同时高度变小</p>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$("#butt1").click(function() {
+				// animate()第一个参数为css样式
+				// animate()第二个参数为延时毫秒
+				// 注： 默认情况下，html中的元素都是固定，并且无法改变的位置的。 为了使用animate()自定义动画效果，需要通过css把元素的position设置为relative、absolute或者fixed。
+				$("#div4").animate({left:'100px'},2000);
+				$("#div4").animate({left:'0px',top:'50px',height:'50px'},2000);
+			});
+		});
+	</script>
+	<br>
+	<br>
+
+	<!-- 回调函数 -->
+	<button id="butt2" class="b1">自定义动画结束时，会有提示框</button>
+	<br>
+	<br>
+	<div id="div5" class="d3">
+		<p>1.向右移动100px</p>
+		<p>2.向左下移动50px,同时高度变小</p>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$("#butt2").click(function() {
+				$("#div5").animate({left:'100px'},2000);
+				// 好在，效果方法都提供对回调函数callback()的支持。只需要在调用效果方法的最后一个参数传入一个function，当效果结束的时候，就会自动调用该function了。
+				$("#div5").animate({left:'0px',top:'50px',height:'50px'},2000,function(){
+					alert("动画结束");
+				});
+			});
+		});
+	</script>
+</body>
+</html>

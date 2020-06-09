@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>属性</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script src="../lib/jquery.min.js"></script>
+
+	<!-- 获取 -->
+	<h1 id="h" align="center" game="lol">居中标题</h1>
+	<button id="b1">获取h1元素中的align属性</button>
+	<button id="b2">获取h1元素中的game属性</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#b1").click(function() {
+				alert("align属性是:" + $("#h").attr("align"));
+			});
+			$("#b2").click(function() {
+				alert("game属性是:" + $("#h").attr("game"));
+			});
+		});
+	</script>
+
+	<!-- 修改 -->
+	<h1 id="h1" align="center">居中标题</h1>
+	<button id="b3">修改align属性为right</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#b3").click(function() {
+				$("#h1").attr("align","right");
+			});
+		});
+	</script>
+
+	<!-- 删除 -->
+	<h1 id="h2" align="center" game="lol">居中标题</h1>
+	<button id="b4">删除align属性</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#b4").click(function() {
+				$("#h2").removeAttr("align");
+			});
+		});
+	</script>
+
+	<!-- prop和attr的区别 -->
+	<br><br><input type="checkbox" id="c" game="lol" checked="checked">选中的复选框<br>
+	<button id="bu1">通过attr获取自定义属性 game</button><br>
+	<button id="bu2">通过prop获取自定义属性 game</button><br>
+	<button id="bu3">通过attr获取 checked属性</button><br>
+	<button id="bu4">通过prop获取 checked属性</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#bu1").click(function (){
+				// 对于自定义属性 attr能够获取，prop不能获取
+				alert("使用attr获取自定义属性game:" + $("#c").attr("game"));
+			});
+			$("#bu2").click(function (){
+				// prop不能获取自定义属性
+				alert("使用prop获取自定义属性game:" + $("#c").prop("game"));
+			});
+			$("#bu3").click(function (){
+				// attr 只能获取初始值， 无论是否变化
+				alert("使用attr获取选中属性checked:" + $("#c").attr("checked"));
+			});
+			$("#bu4").click(function (){
+				// prop 能够访问变化后的值，并且以true|false的布尔型返回。
+				alert("使用prop获取选中属性checked:" + $("#c").prop("checked"));
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表单对象</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table{
+			border-collapse: collapse;
+			/*列宽由表格宽度和列宽度设定。*/
+			table-layout: fixed;
+			width: 80%;
+		}
+		table td{
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 5px;
+			padding-top: 5px;
+		}
+		div button{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td rowspan="13" valign="top" width="150px">
+				<div>
+					<!-- :input 会选择所有的输入元素，不仅仅是input标签开始的那些，还包括textarea,select和button -->
+					<button value=":input" class="b">切换所有的:input</button>
+					<!-- :button 会选择type=button的input元素和button元素 -->
+					<button value=":button" class="b">切换:button</button>
+					<!-- :radio 会选择单选框 -->
+					<button value=":radio" class="b">切换:radio</button>
+					<!-- :checkbox会选择复选框 -->
+					<button value=":checkbox" class="b">切换:checkbox</button>
+					<!-- :text会选择文本框，但是不会选择文本域 -->
+					<button value=":text" class="b">切换:text</button>
+					<!-- :password会先择密码框 -->
+					<button value=":password" class="b">切换:password</button>
+					<!-- :file会先择文件上传 -->
+					<button value=":file" class="b">切换:file</button>
+					<!-- :submit会选择提交按钮 -->
+					<button value=":submit" class="b">切换:submit</button>
+					<!-- :image会选择图片型提交按钮 -->
+					<button value=":image" class="b">切换:image</button>
+					<!-- :reset会选择重置按钮 -->
+					<button value=":reset" class="b">切换:reset</button>
+				</div>
+			</td>
+			<td width="120px">说明</td>
+			<td width="120px">表单对象</td>
+			<td>示例</td>
+		</tr>
+		<tr>
+			<td>input按钮</td>
+			<td>:input</td>
+			<td><input type="button" value="input按钮"></td>
+		</tr>
+		<tr>
+			<td>button按钮</td>
+			<td>:button</td>
+			<td><input type="button" value="button按钮"></td>
+		</tr>
+		<tr>
+			<td>单选框</td>
+			<td>:radio</td>
+			<td><input type="radio"></td>
+		</tr>
+		<tr>
+			<td>复选框</td>
+			<td>:checkbox</td>
+			<td><input type="checkbox"></td>
+		</tr>
+		<tr>
+			<td>文本框</td>
+			<td>:text</td>
+			<td><input type="text"></td>
+		</tr>
+		<tr>
+			<td>文本域</td>
+			<td></td>
+			<td><textarea></textarea></td>
+		</tr>
+		<tr>
+			<td>密码框</td>
+			<td>:password</td>
+			<td><input type="password"></td>
+		</tr>
+		<tr>
+			<td>文件上传</td>
+			<td>:file</td>
+			<td><input type="file"></td>
+		</tr>
+		<tr>
+			<td>下拉框</td>
+			<td></td>
+			<td><select><option>option</option></select></td>
+		</tr>
+		<tr>
+			<td>提交按钮</td>
+			<td></td>
+			<td><input type="submit"></td>
+		</tr>
+		<tr>
+			<td>图片型提交按钮</td>
+			<td>:image</td>
+			<td><input type="image" src="../image/example.gif"></td>
+		</tr>
+		<tr>
+			<td>重置按钮</td>
+			<td>:reset</td>
+			<td><input type="reset"></td>
+		</tr>
+	</table>
+	<script src="../lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".b").click(function(){
+				// 获取某个元素节点的value值，相当于$(this).attr(“value”);
+				var value = $(this).val();
+				alert(value);
+				// $("td[rowspan!=13] 后面有一个空格，表示层级选择器，如果没有就会出错
+				// toggle(500) 表示在显示与隐藏之间来回切换，生效时间是500毫秒
+				// 如果时inputs相当于td[rowspan!=13] :input
+				$("td[rowspan!=13] " + value).toggle(500);
+			});
+		});
+	</script>
+</body>
+</html>
